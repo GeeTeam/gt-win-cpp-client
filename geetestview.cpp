@@ -1,3 +1,5 @@
+//special thanks xh286286
+
 #include "geetestview.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -5,6 +7,7 @@
 #include <QWebPage>
 #include <QWebFrame>
 #include <QDesktopServices>
+
 GeeTestView::GeeTestView(QWidget *parent)
 	: QWebView(parent)
 {
@@ -43,7 +46,7 @@ void GeeTestView::gtCallBack(QString code, QString result, QString message) {
 	qDebug() << message;
 	if (code == "1") emit gtResultSended(result);
 	this->result = result; 
- 
+    //result 用于二次验证的回调 请搭建二次验证的api2
 }
 bool GeeTestView::loadGeeTest() {
 	if (flag_loading) return false;
@@ -51,9 +54,11 @@ bool GeeTestView::loadGeeTest() {
 	result = "";
 	flag_loading = true;
 
-	/* get gt challenge code  from server
- API1
-jo = QJsonObject({"challenge":"***","gt":"***","success":1})
+	/* fetch gt/challenge/success data from custom server
+
+     API1
+
+     jo = QJsonObject({"challenge":"***","gt":"***","success":1})
 
 	*/
 
