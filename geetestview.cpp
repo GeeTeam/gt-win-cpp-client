@@ -52,7 +52,7 @@ bool GeeTestView::loadGeeTest() {
 	flag_loading = true;
 
 	/* get gt challenge code  from server
-
+ API1
 jo = QJsonObject({"challenge":"***","gt":"***","success":1})
 
 	*/
