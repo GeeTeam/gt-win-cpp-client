@@ -8,6 +8,7 @@
 GeeTestView * geetestView = nullptr;
 geetestView = new GeeTestView(ui.widget_geetest);
 geetestView->loadGeeTest();
+geetestView->show();
 QObject::connect(geetestView, &GeeTestView::gtResultSended, [this](QString result){
 		//API2
 
